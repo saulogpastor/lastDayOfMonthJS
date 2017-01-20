@@ -4,16 +4,17 @@
  * @return {Date} Dia util
  */
 function lastDayOfMonth(dtCompetencia){
+	
 	var year = dtCompetencia.split('/')[1];
 	var month = dtCompetencia.split('/')[0];
 	
-  var lastDayOfMonth = new Date(year, month, 0);
+  	var lastDayOfMonth = new Date(year, month, 0);
 
 	var day = 0;
-	while (lastDayOfMonth.getDay() == 0 || lastDayOfMonth.getDay() == 6)
-	{
+	while (lastDayOfMonth.getDay() == 0 || lastDayOfMonth.getDay() == 6){
 		lastDayOfMonth = new Date(year, month, day);
-  	day = day - 1;  
+		day = day - 1;  
 	}  
-  return lastDayOfMonth;
+  
+  	return lastDayOfMonth.toISOString().slice(0,10);
 }
